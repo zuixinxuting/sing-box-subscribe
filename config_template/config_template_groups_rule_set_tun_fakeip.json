@@ -432,19 +432,6 @@
         "outbound": "dns-out"
       },
       {
-        "type": "logical",
-        "mode": "or",
-        "rules":[
-          {
-            "port":443
-          },
-          {
-            "network": "udp"
-          }
-        ],
-        "outbound": "block"
-      },
-      {
         "rule_set": "geosite-category-ads-all",
         "outbound": "AdBlock"
       },
