@@ -22,7 +22,7 @@
       {
         "tag": "proxyDns",
         "address": "tls://8.8.8.8",
-        "detour": "proxy"
+        "detour": "Proxy"
       },
       {
         "tag": "localDns",
