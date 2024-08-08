@@ -1,5 +1,8 @@
 import urllib.parse,base64,requests,paramiko,random,string,re,chardet
-from paramiko import SSHClient
+import warnings
+from cryptography.utils import CryptographyDeprecationWarning
+with warnings.catch_warnings(action="ignore", category=CryptographyDeprecationWarning):
+    from paramiko import SSHClient
 from scp import SCPClient
 
 def get_encoding(file):
