@@ -94,7 +94,7 @@ def parse(data):
                 'type':'ws',
                 "path": netquery.get('path', '/').rsplit("?ed=", 1)[0] if matches else netquery.get('path', '/'),
                 "headers": {
-                    "Host": '' if netquery.get('obfsParam') is None and netquery.get('sni') == 'None' else netquery.get('sni', netquery.get('obfsParam'))
+                    "Host": '' if netquery.get('obfsParam') is None and netquery.get('sni') == 'None' else netquery.get('peer', netquery.get('obfsParam'))
                 }
             }
             if node.get('tls'):
