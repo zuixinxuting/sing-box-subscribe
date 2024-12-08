@@ -25,7 +25,7 @@ def parse(data):
         node['mtu'] = int(netquery['mtu'])
     if netquery.get('reserved'):
         reserved_value = netquery.get('reserved')
-        node['peers'] ['reserved'] = [int(val) for val in reserved_value.split(",")] if ',' in reserved_value else reserved_value
+        node['peers']['reserved'] = [int(val) for val in reserved_value.split(",")] if ',' in reserved_value else reserved_value
     ip_value = netquery.get('ip') or netquery.get('address')
     if ',' in ip_value:
         ipv4_value, ipv6_value = ip_value.split(",", 1)
@@ -36,5 +36,5 @@ def parse(data):
         ipv4_value = ip_value + "/32" if '/' not in ip_value else ip_value
         node['address'] = [ipv4_value]
     if netquery.get('presharedKey'):
-        node['pre_shared_key'] = netquery['presharedKey']
+        node['peers']['pre_shared_key'] = netquery['presharedKey']
     return (node)
