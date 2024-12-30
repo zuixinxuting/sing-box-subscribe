@@ -27,7 +27,7 @@ def parse(data):
         }
     }
     if ports_match:
-        node['server_ports'] = [ports_match.group(1)]
+        node['server_ports'] = [ports_match.group(1).replace('-', ':')]
     if netquery.get('insecure') in ['1', 'true'] or netquery.get('allowInsecure') == '1':
         node['tls']['insecure'] = True
     if node['tls']['server_name'] == '':
