@@ -32,14 +32,14 @@
     ],
     "rules": [
       {
-        "outbound": "any",
-        "server": "localDns"
-      },
-      {
         "domain": [
           "cdn.jsdelivr.net"
         ],
         "server": "proxyDns"
+      },
+      {
+        "outbound": "any",
+        "server": "localDns"
       },
       {
         "rule_set": "geosite-cn",

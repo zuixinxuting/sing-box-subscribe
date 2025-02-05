@@ -41,14 +41,14 @@
     ],
     "rules": [
       {
-        "outbound": "any",
-        "server": "local"
-      },
-      {
         "domain": [
           "cdn.jsdelivr.net"
         ],
         "server": "google"
+      },
+      {
+        "outbound": "any",
+        "server": "local"
       },
       {
         "clash_mode": "direct",
