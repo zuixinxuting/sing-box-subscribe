@@ -580,7 +580,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--temp_json_data', type=parse_json, help='临时内容')
     parser.add_argument('--template_index', type=int, help='模板序号')
-    parser.add_argument('--gh_proxy_index', type=int, help='github加速链接')
+    parser.add_argument('--gh_proxy_index', type=str, help='github加速链接')
     args = parser.parse_args()
     temp_json_data = args.temp_json_data
     gh_proxy_index = args.gh_proxy_index
@@ -610,12 +610,9 @@ if __name__ == '__main__':
     nodes = process_subscribes(providers["subscribes"])
 
     # 处理github加速
-    if gh_proxy_index:
-        selected_index = gh_proxy_index
-    else:
-        selected_index = input("请选择一个加速服务（输入编号，默认1）: ").strip()
+    gh_proxy_index = int(args.gh_proxy_index) if args.gh_proxy_index and args.gh_proxy_index.isdigit() else 0
     urls = [item["url"] for item in config["route"]["rule_set"]]
-    new_urls = set_gh_proxy(urls, int(selected_index)-1)
+    new_urls = set_gh_proxy(urls, gh_proxy_index)
     for item, new_url in zip(config["route"]["rule_set"], new_urls):
         item["url"] = new_url
 
